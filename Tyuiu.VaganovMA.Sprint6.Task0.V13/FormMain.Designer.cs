@@ -163,7 +163,7 @@
 
         #endregion
 
-        private PictureBox pictureBox2;
+        private PictureBox pictureBox2; 
         private TextBox textBoxTask;
         private Button button1;
         private GroupBox groupBoxTask;
