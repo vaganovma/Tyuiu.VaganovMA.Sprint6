@@ -1,6 +1,6 @@
 ﻿namespace Tyuiu.VaganovMA.Sprint6.Task1.V9
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             groupBox1 = new GroupBox();
             pictureBox1 = new PictureBox();
             groupBox2 = new GroupBox();
@@ -139,7 +139,7 @@
             textBoxStop.Name = "textBoxStop";
             textBoxStop.Size = new Size(125, 27);
             textBoxStop.TabIndex = 3;
-            textBoxStop.Text = "5";
+            textBoxStop.TextChanged += textBoxStop_TextChanged;
             textBoxStop.KeyPress += textBoxStart_KeyPress;
             // 
             // textBoxStart
@@ -148,7 +148,6 @@
             textBoxStart.Name = "textBoxStart";
             textBoxStart.Size = new Size(125, 27);
             textBoxStart.TabIndex = 2;
-            textBoxStart.Text = "-5";
             textBoxStart.KeyPress += textBoxStart_KeyPress;
             // 
             // button2
