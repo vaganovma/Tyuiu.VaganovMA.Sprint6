@@ -17,11 +17,11 @@ public class DataService : ISprint6Task1V9
         //    // valueArray[x]
         //    double z = 2 * x - 4 + ((2 * x - 1) / (Math.Sin(x) + 1));
         //    y = Math.Round(z, 2);//округляем
-        //    valueArray[count] = y;//присваиваем значение в массив с индексом каунт
+        //    valueArray[x] = y;//присваиваем значение в массив с индексом каунт
         //}
         //return valueArray;
         double[] valueArray = new double[11];  //обновляем пустой массив
-        
+
         for (int x = startValue; x < 11 - 1; x++)
         {
             // valueArray[x]
