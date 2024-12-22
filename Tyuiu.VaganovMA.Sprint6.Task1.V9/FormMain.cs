@@ -80,5 +80,10 @@ namespace Tyuiu.VaganovMA.Sprint6.Task1.V9
         {
 
         }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

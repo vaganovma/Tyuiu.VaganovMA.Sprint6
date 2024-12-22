@@ -184,6 +184,7 @@
             Controls.Add(groupBox1);
             Name = "FormMain";
             Text = "Спринт 6 | Таск 1 v9 | Ваганов М.А";
+            Load += FormMain_Load;
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox2.ResumeLayout(false);
