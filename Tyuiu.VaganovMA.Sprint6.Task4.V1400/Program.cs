@@ -1,4 +1,4 @@
-using Tyuiu.VaganovMA.Sprint6.Task2.V28.Lib; 
+using Tyuiu.VaganovMA.Sprint6.Task4.V14.Lib; 
  
 class Program 
 { 
@@ -9,8 +9,8 @@ class Program
         Console.WriteLine("************************************************************************"); 
         Console.WriteLine("* Спринт #6                                                            *"); 
         Console.WriteLine("* Тема:                                                                *"); 
-        Console.WriteLine("* Задание #2                                                           *"); 
-        Console.WriteLine("* Вариант #28                                                          *"); 
+        Console.WriteLine("* Задание #4                                                           *"); 
+        Console.WriteLine("* Вариант #14                                                          *"); 
         Console.WriteLine("* Выполнил: Ваганов Михаил Алексеевич  | ИИПб-24-2                                                           *"); 
         Console.WriteLine("************************************************************************"); 
         Console.WriteLine("* УСЛОВИЕ:                                                             *"); 
@@ -24,7 +24,7 @@ class Program
         Console.WriteLine("Введите переменную Y:"); 
         int y = int.Parse(Console.ReadLine()!); 
  
-        string path = $@"C:\DataSprint5\InPutDataFileTask2V28.txt"; 
+        string path = $@"C:\DataSprint5\InPutDataFileTask4V14.txt"; 
         Console.WriteLine("данные находятся в файле: " + path); 
  
         Console.WriteLine("************************************************************************"); 
