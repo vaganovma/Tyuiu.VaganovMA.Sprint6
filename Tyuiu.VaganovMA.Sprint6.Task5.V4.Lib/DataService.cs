@@ -31,7 +31,7 @@ public class DataService : ISprint6Task5V4
             }
         }
         //numsArray = numsArray.Where(val => val > 0).ToArray();
-        numsArray = numsArray.Where(val =>val % 1 == 0).ToArray();
+        numsArray = numsArray.Where(val =>val % 1 == 0).ToArray(); 
         return numsArray;
 
     }
