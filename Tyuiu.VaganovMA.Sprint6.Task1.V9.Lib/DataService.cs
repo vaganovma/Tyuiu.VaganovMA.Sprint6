@@ -22,7 +22,7 @@ public class DataService : ISprint6Task1V9
         //return valueArray;
         double[] valueArray = new double[11];  //обновляем пустой массив
 
-        for (int x = startValue; x < 11 - 1; x++)
+        for (int x = startValue; x < stopValue; x++)
         {
             // valueArray[x]
             double z = 2 * x - 4 + ((2 * x - 1) / (Math.Sin(x) + 1));
