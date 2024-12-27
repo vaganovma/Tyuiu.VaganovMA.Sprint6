@@ -1,12 +1,12 @@
 using System.IO;
 using System.Windows.Forms;
-using Tyuiu.VaganovMA.Sprint6.Task7.V17.Lib;
+using Tyuiu.VaganovMA.Sprint6.Task7.V7.Lib;
 
-namespace Tyuiu.VaganovMA.Sprint6.Task7.V17
+namespace Tyuiu.VaganovMA.Sprint6.Task7.V7
 {
-    public partial class FormMain : Form
+    public partial class Form1 : Form
     {
-        public FormMain()
+        public Form1()
         {
             InitializeComponent();
             openFileDialog.Filter = "Значения, разделенные запятыми(*.csv)|*.csv|Все файлы(*.*)|*.*";
@@ -18,31 +18,9 @@ namespace Tyuiu.VaganovMA.Sprint6.Task7.V17
 
         DataService ds = new DataService();
 
-        private int[,] LoadFromFileDFate(string filename)
-        {
-            string text = File.ReadAllText(path);
-            //разделение на строки
-            text = text.Replace('\n', '\r');
-            string[] lines = text.Split(new char[] { '\r' }, StringSplitOptions.RemoveEmptyEntries);
-            //опред кол столбц и строк
-            rows = lines.Length;
-            columns = lines[0].Split(';').Length;
-            //Выделите массив данных
-            int[,] array = new int[rows, columns];
-            //Заполнить массив данных
-            for (int i = 0; i < rows; i++)
-            {
-                string[] line_r = lines[i].Split(';');
-                for (int j = 0; j < columns; j++)
-                {
-                    array[i, j] = Convert.ToInt32(line_r[j]);
-                }
-            }
-            return array;
-        }
-
         private void buttonHelp_Click(object sender, EventArgs e)
         {
+
             FormAbout formAbout = new FormAbout();
             formAbout.ShowDialog();
         }
@@ -52,30 +30,54 @@ namespace Tyuiu.VaganovMA.Sprint6.Task7.V17
             openFileDialog.ShowDialog();
             path = openFileDialog.FileName;
 
-            int[,] arrayValues = new int[rows, columns];
+            // Задайте количество строк и столбцов, например:
+            rows = 5;  // Замените на ваше значение
+            columns = 5;  // Замените на ваше значение
 
-            arrayValues = LoadFromFileDFate(path);
+            // Генерируем массив
+            int[,] arrayValues = GenerateMatrix(rows, columns, -10, 10); // Пример генерируемых значений от -10 до 10
+            //int[,] arrayValues = new int[rows, columns];
+            //arrayValues = LoadFromFileDFate(path);
+            DisplayMatrixInDataGridView(dataGridViewInput, arrayValues);
 
-            dataGridViewInput.ColumnCount = columns;
-            dataGridViewInput.RowCount = rows;
-            dataGridViewOutput.ColumnCount = columns;
-            dataGridViewOutput.RowCount = columns;
+            buttonDone.Enabled = true;
+        }
 
-            for (int i = 0; i < columns; i++)
-            {
-                dataGridViewInput.Columns[i].Width = 40;
-                dataGridViewOutput.Columns[i].Width = 40;
-            }
-
+        private void buttonDone_Click(object sender, EventArgs e)    ////////////................buttonDone_Click
+        {
+            int[,] result = ds.GetMatrix(int array[,], int n1, int n2, int c, int k, int l);
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    dataGridViewInput.Rows[i].Cells[j].Value = arrayValues[i, j];
+                    dataGridViewOutput.Rows[i].Cells[j].Value = result[i, j];
                 }
             }
-            // arrayValues
-            buttonDone.Enabled = true;
+            buttonSaveFile.Enabled = true;
+            // Проверка на корректность ввода
+            int n1 = -10; // Установите ваше значение
+            int n2 = 10;  // Установите ваше значение
+            int k = 1;    // Установите ваше значение
+            int l = 3;    // Установите ваше значение
+            int c = 2;    // Установите ваше значение
+
+            // Проверяем на корректность ввода (вы можете добавить пользовательский ввод)
+            if (n1 >= n2)
+            {
+                MessageBox.Show("n1 должно быть меньше n2");
+                return;
+            }
+            if (k > l)
+            {
+                MessageBox.Show("K должно быть меньше или равно L");
+                return;
+            }
+
+            int[,] arrayValues = /* получите ваш массив */;
+            int negativeCount = CountNegativeElements(arrayValues, c, k, l);
+
+            // отображаем количество
+            MessageBox.Show($"Количество отрицательных элементов в столбце {c}: {negativeCount}");
         }
 
         private void buttonSaveFile_Click(object sender, EventArgs e)
@@ -117,27 +119,28 @@ namespace Tyuiu.VaganovMA.Sprint6.Task7.V17
             str = "";
         }
 
-        private void buttonOpenFile_MouseEnter(object sender, EventArgs e)
+        private void toolTip_Popup(object sender, PopupEventArgs e)
         {
             toolTip.ToolTipTitle = "Открыть файл";
         }
 
-        private void buttonDone_Click(object sender, EventArgs e)
+        private void groupBoxTask_Click(object sender, EventArgs e)
         {
-            int[,] result = ds.GetMatrix(path);
+
+        }
+
+        private void dataGridViewInput_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgv.ColumnCount = columns;
+            dgv.RowCount = rows;
+
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    dataGridViewOutput.Rows[i].Cells[j].Value = result[i, j];
+                    dgv.Rows[i].Cells[j].Value = matrix[i, j];
                 }
             }
-            buttonSaveFile.Enabled = true;
-        }
-
-        private void saveFileDialog_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
         }
     }
 }

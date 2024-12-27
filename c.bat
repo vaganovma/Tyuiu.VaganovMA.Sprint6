@@ -9,7 +9,7 @@ set name=VaganovMA
 
 set sprint=6
 set task=7
-set variant=17
+set variant=1
 
 set template=%prefix%.%name%.Sprint%sprint%
 set filename_template=%template%.Task%task%.V%variant%
