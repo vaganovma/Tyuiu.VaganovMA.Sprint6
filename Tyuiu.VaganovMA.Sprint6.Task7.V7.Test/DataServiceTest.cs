@@ -6,6 +6,6 @@ namespace Tyuiu.VaganovMA.Sprint6.Task7.V7.Test
         [TestMethod]
         public void TestMethod1()
         {
-        }
+        } 
     }
 }

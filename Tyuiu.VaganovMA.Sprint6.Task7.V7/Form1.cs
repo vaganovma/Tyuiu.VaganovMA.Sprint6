@@ -82,7 +82,7 @@ namespace Tyuiu.VaganovMA.Sprint6.Task7.V7
 
         private void buttonSaveFile_Click(object sender, EventArgs e)
         {
-            saveFileDialog.FileName = "OutPutTask7.csv";
+            saveFileDialog.FileName = "OutPutTask7.csv"; 
             saveFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
             saveFileDialog.ShowDialog();
 

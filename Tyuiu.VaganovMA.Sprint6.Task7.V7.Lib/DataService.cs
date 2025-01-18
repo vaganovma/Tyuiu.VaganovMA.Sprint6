@@ -13,7 +13,7 @@ public class DataService : ISprint6Task7V7
         int[,] matrix = new int[rows, columns];
 
         for (int i = 0; i < rows; i++)
-        {
+        { 
             for (int j = 0; j < columns; j++)
             {
                 // Чередуем отрицательные и положительные числа
