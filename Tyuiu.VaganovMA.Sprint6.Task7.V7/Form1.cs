@@ -43,7 +43,7 @@ namespace Tyuiu.VaganovMA.Sprint6.Task7.V7
             buttonDone.Enabled = true;
         }
 
-        private void buttonDone_Click(object sender, EventArgs e)    ////////////................buttonDone_Click
+        private void buttonDone_Click(object sender, EventArgs e)    ////////////................buttonDone_Click 
         {
             int[,] result = ds.GetMatrix(int array[,], int n1, int n2, int c, int k, int l);
             for (int i = 0; i < rows; i++)
